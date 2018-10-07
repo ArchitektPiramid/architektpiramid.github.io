@@ -1,0 +1,15 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+.my_img_row {
+    display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.my_img_column {
+    flex: 33.33%;
+    padding: 10px;
+}
