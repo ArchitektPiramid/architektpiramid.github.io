@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import todoIcon from '../../public/in_progress.svg';
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<main className="flex space-y-12 flex-col items-center justify-between">
 			<h1 className="animate-pulse text-3xl font-bold mt-8">
