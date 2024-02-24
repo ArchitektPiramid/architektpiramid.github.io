@@ -12,14 +12,12 @@
 // }
 
 const Footer: React.FC = () => {
-	const curr_year = new Date().getFullYear();
+	const curr_year: string = '© ' + new Date().getFullYear();
 	return (
-		<footer className="items-center flex-col bg-white">
-			<div className="">
-				<hr className="mb-4 w-full" />
-				<span className="pt-4 justify-between">
-					{curr_year}d Nowak Dominik. All Rights Reserved.
-				</span>
+		<footer className="fixed bottom-0 w-full bg-gray-900 pb-4">
+			<hr className="border-0 h-px mb-3 bg-gray-300" />
+			<div className="text-xs text-center text-gray-200">
+				{curr_year} ArchitektPiramid. All Rights Reserved
 			</div>
 		</footer>
 	);
