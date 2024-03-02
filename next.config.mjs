@@ -2,9 +2,9 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	output: 'export',
+	//output: 'export',
 	// Config base path for GitHub pages repo
-	basePath: '/nextjs-github-pages',
+	//basePath: '/nextjs-github-pages',
 	// https://nextjs.org/docs/app/api-reference/components/image#unoptimized
 	images: {
 		unoptimized: true,

@@ -34,10 +34,17 @@ export default function HomePage() {
 
 				<button
 					type="button"
+					className="uppercase hover:font-black hover:bg-gray-50 px-8 h-12 font-bold rounded dark:bg-gray-100 dark:text-gray-800"
+				>
+					<Link href="/projects">Projects</Link>
+				</button>
+
+				<button
+					type="button"
 					disabled
 					className="px-8 h-12 disabled:line-through disabled:bg-gray-500 bg-gray-100 text-gray-800 rounded font-bold uppercase"
 				>
-					Projects
+					Other
 				</button>
 			</div>
 		</main>
