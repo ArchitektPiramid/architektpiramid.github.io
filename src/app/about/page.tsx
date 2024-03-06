@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Page() {
 	//const router = useRouter();
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-between p-24">
+		<div className="flex flex-col items-center justify-between">
 			<h1>About me page. Router: /about</h1>
 			<Link href="./">Back BTN</Link>
 			{/* <button

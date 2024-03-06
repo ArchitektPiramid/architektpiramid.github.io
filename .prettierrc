@@ -2,7 +2,7 @@
 	"$schema": "http://json.schemastore.org/prettierrc",
 	"singleQuote": true,
 	"semi": true,
-	"endOfLine": "lf",
+	"endOfLine": "auto",
 	"proseWrap": "always",
 	"useTabs": true,
 	"trailingComma": "all",
