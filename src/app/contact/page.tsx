@@ -8,7 +8,7 @@ export default function PageContact() {
 	async function onSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 
-		const formData = new FormData(event.currentTarget);
+		const formData: FormData = new FormData(event.currentTarget);
 		const response = await fetch('/api/submit', {
 			method: 'POST',
 			body: formData,
