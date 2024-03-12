@@ -3,76 +3,100 @@
 import Link from 'next/link';
 import SidebarList from './components/sidebarList';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 const navProjectLinks: INavSidebarBtn[] = [
 	{
 		name: 'First Projects',
 		href: '/projects/first-apps',
-		enabled: true,
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'Home Rack',
 		href: '/projects/home-server',
-		enabled: true,
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'ElectroDB',
-		href: '/projects/major',
-		enabled: false,
+		href: '/projects/electro-db',
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'RoboMajor',
 		href: '/projects/major',
-		enabled: true,
+		isEnabled: false,
 		testField: false,
 	},
 ];
+
+type ToggleAside = () => void;
+
+const renderAside = (toggleAside: ToggleAside) => {
+	return (
+		<aside className="fixed z-60 w-56 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-800 text-gray-300">
+			<div className="sticky top-0 h-16 flex items-center justify-center px-4">
+				<button
+					type="button"
+					onClick={toggleAside}
+					className="h-6 w-6 bg-transparent rounded-md transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						className="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M19 9l-7 7-7-7"
+						/>
+					</svg>
+				</button>
+			</div>
+			<div className="h-screen overflow-auto">
+				<SidebarList navigation={navProjectLinks} />
+			</div>
+		</aside>
+	);
+};
+
+const renderBody = (children: React.ReactNode) => {
+	return <div className="ml-56 transition-margin">{children}</div>;
+};
 
 export default function ProjectsLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	//const [pathName, setPathName] = usePathname() ?? '';
+	const [sidebarVisible, setSidebarVisible] = useState<boolean>(true);
+
+	const toggleAside = () => {
+		const asideEl = document.querySelector('aside');
+		if (asideEl) {
+			asideEl.classList.toggle('-translate-y-full');
+			setSidebarVisible(!sidebarVisible);
+		}
+	};
+
 	return (
 		<div className="flex flex-wrap">
-			<aside className="top-0 left-0 z-60 w-48 h-screen transition-transform -translate-x-full sm:translate-x-0">
-				<SidebarList navigation={navProjectLinks} />
-
-				{/* <div className="h-full py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-					<ul className="space-y-2 font-medium">
-						<li className="w-full px-4 py-2 border-b border-gray-600">
-							TEST TEST 1
-						</li>
-						<Link
-							href="/server"
-							className="hover:text-white hover:bg-gray-600"
-						>
-							<li className="hover:text-white hover:bg-gray-600">
-								TEST TEST 2
-							</li>
-						</Link>
-
-						<li>TEST TEST dddd</li>
-					</ul>
-				</div> */}
-			</aside>
-			{/* <ul className="">
-				{navProjectLinks.map((link) => {
-					return (
-						<li
-							className="p-4 bg-gray-800 hover:bg-gray-600"
-							key={link.name}
-						>
-							<Link href={link.href}>{link.name}</Link>
-						</li>
-					);
-				})}
-			</ul> */}
-			{children}
+			{renderAside(toggleAside)}
+			{renderBody(children)}
+			{/* <div className="">
+				<button
+					className="text-white bg-gray-700 p-2 rounded-md hover:bg-gray-600"
+					onClick={toggleAside}
+				>
+					<h2>{sidebarVisible ? 'HIDE SIDEBAR' : 'SHOW SIDEBAR'}</h2>
+				</button>
+			</div> */}
 		</div>
 	);
 }

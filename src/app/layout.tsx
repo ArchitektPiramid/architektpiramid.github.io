@@ -6,9 +6,9 @@ import Header from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-	title: 'ArchitektPiramid page',
-	description: 'Page containing blog/portfolio. Belongs to Dominik Nowak',
+export const meta: Metadata = {
+	title: 'ArchitektPiramid - Blog & Portfolio',
+	description: 'Personal blog and portfolio',
 };
 
 export default function RootLayout({
