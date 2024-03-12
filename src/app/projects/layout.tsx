@@ -20,14 +20,14 @@ const navProjectLinks: INavSidebarBtn[] = [
 	},
 	{
 		name: 'ElectroDB',
-		href: '/projects/major',
-		isEnabled: false,
+		href: '/projects/electro-db',
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'RoboMajor',
 		href: '/projects/major',
-		isEnabled: true,
+		isEnabled: false,
 		testField: false,
 	},
 ];
@@ -89,14 +89,14 @@ export default function ProjectsLayout({
 		<div className="flex flex-wrap">
 			{renderAside(toggleAside)}
 			{renderBody(children)}
-			<div>
+			{/* <div className="">
 				<button
 					className="text-white bg-gray-700 p-2 rounded-md hover:bg-gray-600"
 					onClick={toggleAside}
 				>
 					<h2>{sidebarVisible ? 'HIDE SIDEBAR' : 'SHOW SIDEBAR'}</h2>
 				</button>
-			</div>
+			</div> */}
 		</div>
 	);
 }
