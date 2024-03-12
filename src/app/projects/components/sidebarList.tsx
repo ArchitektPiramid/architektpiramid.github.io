@@ -60,9 +60,10 @@ const SidebarList = (props: Props) => {
 				{navList.map((btn: INavSidebarBtn) => {
 					return (
 						<ButtonMainSidebar
+							{...btn}
 							key={btn.name}
 							isSelected={pathN == btn.href}
-							nav={btn}
+							//nav={btn}
 						/>
 					);
 					//return <ProjButton key={btn.name} />;

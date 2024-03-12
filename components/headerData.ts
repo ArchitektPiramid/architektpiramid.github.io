@@ -1,6 +1,8 @@
 interface INavLinkData {
 	//key: string | null;
+	// TODO: btn name
 	name: string;
+	// TODO: navHref
 	href: string;
 }
 

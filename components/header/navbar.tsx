@@ -18,7 +18,7 @@ const NavbarComp = (props: Props) => {
 		console.warn('KLIK');
 	};
 
-	const pathN = usePathname();
+	const pathN = usePathname() ?? '';
 	//const [state, setState] = useState<string>('none');
 
 	//console.warn('----');
@@ -27,11 +27,8 @@ const NavbarComp = (props: Props) => {
 		<div>
 			<div className="flex flex-wrap justify-center">
 				{navArray.map((navBtn) => {
-					//setState(navBtn.name);
 					const isActive = pathN?.startsWith(navBtn.href);
-					//console.log(isActive);
 					//console.log('nav: ' + navBtn.href + ' = ' + state);
-					const st: string = isActive ? '1' : '0';
 					return (
 						<div key={navBtn.name}>
 							<Link
@@ -39,7 +36,7 @@ const NavbarComp = (props: Props) => {
 								href={navBtn.href}
 								key={navBtn.name}
 							>
-								{navBtn.name} {st}
+								{isActive && '> '} {navBtn.name}
 							</Link>
 						</div>
 					);

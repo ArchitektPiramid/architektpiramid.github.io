@@ -9,25 +9,25 @@ const navProjectLinks: INavSidebarBtn[] = [
 	{
 		name: 'First Projects',
 		href: '/projects/first-apps',
-		enabled: true,
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'Home Rack',
 		href: '/projects/home-server',
-		enabled: true,
+		isEnabled: true,
 		testField: false,
 	},
 	{
 		name: 'ElectroDB',
 		href: '/projects/major',
-		enabled: false,
+		isEnabled: false,
 		testField: false,
 	},
 	{
 		name: 'RoboMajor',
 		href: '/projects/major',
-		enabled: true,
+		isEnabled: true,
 		testField: false,
 	},
 ];

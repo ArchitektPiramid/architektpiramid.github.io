@@ -1,30 +1,45 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 
-interface PropsProjCat {
-	nav: INavSidebarBtn;
-	isSelected: boolean;
-}
-
-const ButtonMainSidebar = (props: PropsProjCat) => {
-	const sClass = props.isSelected ? '+' : '-';
-	const btnOn = props.nav.enabled;
-	const styleSelected = clsx(
-		'border-b py-2',
-		btnOn && ' hover:bg-gray-600 hover:border-b-4',
-		!btnOn && 'bg-gray-900 cursor-not-allowed',
-	);
-	// disabled:  cursor-not-allowed, aria-disabled={true}
+const Span = (props: ISpanProps) => {
+	const { variant, className = '', children } = props;
+	const getBgColor = (variant: SpanVariant) => {
+		const mapping = {
+			[SpanVariant.Blue]:
+				'bg-blue-100 dark:bg-blue-900 dark:text-blue-300',
+			[SpanVariant.Gray]:
+				'bg-gray-100 dark:bg-gray-700 dark:text-gray-300',
+		};
+		return mapping[variant];
+	};
 	return (
-		<Link aria-disabled={btnOn} href={props.nav.href}>
+		<span
+			className={`inline-flex items-center justify-center w-1 h-3 p-2.5 text-sm font-medium ${getBgColor(
+				variant,
+			)} rounded-full ${className}`}
+		>
+			{children}
+		</span>
+	);
+};
+
+const ButtonMainSidebar = (props: INavSidebarBtn) => {
+	const { name, href, isSelected, isEnabled, spans } = props;
+	const sClass = isSelected ? '+' : '-';
+	const styleSelected = clsx(
+		'border-b pl-4 py-2',
+		isSelected && ' bg-gray-50 dark:bg-gray-800',
+		isEnabled && ' hover:bg-gray-600',
+		!isEnabled && 'bg-gray-900 cursor-not-allowed',
+	);
+	return (
+		<Link href={href} aria-disabled={!isEnabled}>
 			<li className={styleSelected}>
-				{sClass} {props.nav.name}{' '}
-				<span className="inline-flex items-center justify-center w-1 h-3 p-2.5 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-					3
-				</span>
-				<span className="inline-flex items-center justify-center px-2 ml-2 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-					New
-				</span>
+				{sClass} {name}
+				{spans &&
+					spans.map((s, i) => {
+						return <Span key={i} {...s} />;
+					})}
 			</li>
 		</Link>
 	);
