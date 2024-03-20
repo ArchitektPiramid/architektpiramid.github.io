@@ -9,7 +9,7 @@ interface ISpanProps {
 	children?: React.ReactNode;
 }
 
-interface INavSidebarBtn extends INavLinkData {
+interface INavSidebarBtn extends IHeaderNavLinks {
 	// INavHeaderBtn
 	// TODO: optional
 	isEnabled?: boolean;

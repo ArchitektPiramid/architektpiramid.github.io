@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Footer from '@/components/Footer';
 import '@/styles/globals.css';
-import Header from '@/components/Header';
+import RootHeader from '@/components/header/RootHeader';
+import RootFooter from '@/components/footer/RootFooter';
+import { cn } from 'src/lib/utils';
+import isDEBUG from '@/utils/helper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +21,18 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head></head>
-			<body className={inter.className}>
-				<Header />
-				<main>{children}</main>
-				<Footer />
+			<body className="${inter.className}">
+				<RootHeader />
+				<main
+					className={cn(
+						'mx-auto justify-center bg-gray-950',
+						'max-w-screen-2xl',
+						isDEBUG() && 'border-dashed border-2 border-blue-300',
+					)}
+				>
+					{children}
+				</main>
+				<RootFooter />
 			</body>
 		</html>
 	);

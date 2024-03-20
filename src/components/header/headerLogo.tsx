@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import isDEBUG from '@/utils/helper';
 import Link from 'next/link';
 import LogoIcon from 'src/icons/logo-icon';
 import { cn } from 'src/lib/utils';
-import isDEBUG from 'src/utils/helper';
 
 const HeaderLogoComponent: React.FC = () => {
 	const now = new Date();
