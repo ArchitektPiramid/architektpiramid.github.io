@@ -10,10 +10,10 @@ import { useState } from 'react';
 // };
 
 interface Props {
-	valuesList: INavLinkData[];
+	valuesList: IHeaderNavLinks[];
 }
 
-const NavbarComp = (props: Props) => {
+const HeaderNavbarComponent = (props: Props) => {
 	const klik = () => {
 		console.warn('KLIK');
 	};
@@ -46,4 +46,4 @@ const NavbarComp = (props: Props) => {
 	);
 };
 
-export default NavbarComp;
+export default HeaderNavbarComponent;

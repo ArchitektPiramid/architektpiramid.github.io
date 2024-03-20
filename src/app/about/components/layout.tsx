@@ -1,4 +1,4 @@
-import GroupList from './components/groupList';
+import { cn } from 'src/lib/utils';
 
 export default function DashboardLayout({
 	children, // will be a page or nested layout
@@ -6,10 +6,9 @@ export default function DashboardLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<section>
+		<section className={cn('')}>
 			{/* Include shared UI here e.g. a header or sidebar */}
-			<h2>About layout</h2>
-			<GroupList />
+
 			{children}
 		</section>
 	);

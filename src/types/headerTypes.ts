@@ -1,4 +1,4 @@
-interface INavLinkData {
+interface IHeaderNavLinks {
 	//key: string | null;
 	// TODO: btn name
 	name: string;
