@@ -1,8 +1,10 @@
 interface ComponentTableProps {
 	id: number;
+	category?: string;
 	name: string;
 	description: string;
-	imageUrl: string;
+	imageUrl?: string;
+	tags?: string[];
 }
 
 const testProjectList: ComponentTableProps[] = [
