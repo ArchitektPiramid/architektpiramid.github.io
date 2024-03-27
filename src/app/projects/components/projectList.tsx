@@ -21,11 +21,11 @@ const ProjectListComponent: React.FC = () => {
 					<div key={shoe.id} className="bg-gray-100 p-4 rounded-lg">
 						<img
 							src={shoe.imageUrl}
-							alt={shoe.name}
+							alt={shoe.title}
 							className="mx-auto"
 						/>
 						<h2 className="text-lg font-semibold mt-4">
-							{shoe.name}
+							{shoe.title}
 						</h2>
 						<p className="text-gray-600">{shoe.description}</p>
 					</div>
@@ -46,7 +46,7 @@ const ProjectListComponent: React.FC = () => {
 							>
 								<img
 									src={shoes[0].imageUrl}
-									alt={shoes[0].name}
+									alt={shoes[0].title}
 									className="mx-auto"
 								/>
 							</div>

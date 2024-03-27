@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { cn } from 'src/lib/utils';
 import { FaExclamationCircle } from 'react-icons/fa';
+import isDEBUG from '@/utils/helper';
+
+// #FDE2F3
+// #E5BEEC
+// #917FB3
+// #2A2F4F
+
+// #212121
+// #101519
 
 type Props = {
 	style?: React.CSSProperties;
@@ -9,6 +18,40 @@ type Props = {
 
 const DEFAULT_IMAGE_URL =
 	'htts://via.placeholder.com/400x300?text=Image+Not+Available';
+
+function projInfo(title: string, description: string) {
+	// 	<div
+	// 	className={cn(
+	// 		'text-center py-2',
+	// 		`bg-${project?.versionInfo?.backgroundColor} text-${project?.versionInfo?.fontColor} text-xl font-semibold`,
+	// 	)}
+	// >
+	// 	{project.name}
+	// </div>
+	// <p className="text-justify text-sm text-gray-100 indent-6 line-clamp-3 hover:line-clamp-none">
+	// 	{project.description}
+	// </p>
+	return (
+		<div
+			className={cn(
+				'px-6 py-4',
+				isDEBUG() && 'border-dashed border-2 border-red-500',
+			)}
+		>
+			<div className={cn('mb-2 text-center', `text-xl font-bold`)}>
+				{title}
+			</div>
+			<p
+				className={cn(
+					'text-justify text-base ',
+					'indent-6 line-clamp-3 hover:line-clamp-none',
+				)}
+			>
+				{description}
+			</p>
+		</div>
+	);
+}
 
 export default function ProjectContextComponent({
 	projectData: project,
@@ -19,8 +62,8 @@ export default function ProjectContextComponent({
 	return (
 		<div
 			className={cn(
-				'p-4 min-w-md max-w-lg relative z-10',
-				'bg-gray-800 rounded-lg',
+				'min-w-md max-w-lg relative z-10',
+				'bg-[#2A2F4F] rounded-lg shadow-lg',
 				'border border-gray-800 hover:border-gray-300',
 			)}
 		>
@@ -50,25 +93,14 @@ export default function ProjectContextComponent({
 			{/* <div className="pt-1">v1</div> */}
 			<img
 				src={project.imageUrl || DEFAULT_IMAGE_URL}
-				alt={project.name}
+				alt={project.title}
 				className={cn(
 					'text-center mx-auto h-48',
 					imageError && 'max-w-40',
 				)}
 			/>
-
-			<div
-				className={cn(
-					'text-center py-2',
-					`bg-${project?.versionInfo?.backgroundColor} text-${project?.versionInfo?.fontColor} text-xl font-semibold`,
-				)}
-			>
-				{project.name}
-			</div>
-			<p className="text-justify text-sm text-gray-100 indent-6 line-clamp-3 hover:line-clamp-none">
-				{project.description}
-			</p>
-			<div className="flex justify-center space-x-4 mt-2">
+			{projInfo(project.title, project.description)}
+			{/* <div className="flex justify-center space-x-4 mt-2">
 				<div
 					className={`px-2 py-1 bg-${project?.categoryInfo?.color} text-white rounded`}
 				>
@@ -79,7 +111,7 @@ export default function ProjectContextComponent({
 				>
 					{project?.statusInfo?.status}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
