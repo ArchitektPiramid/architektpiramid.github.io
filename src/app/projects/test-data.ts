@@ -7,7 +7,10 @@ export function getTestData_v2(): ComponentTableProps[] {
 				'Build a weather station using ESP32 microcontroller to measure temperature, humidity, and air pressure. Display real-time data on a web server hosted by ESP32.',
 			imageUrl:
 				'https://via.placeholder.com/400x250/87CEEB/000000?text=Weather+Station',
-			category: 'IoT',
+			categoryInfo: {
+				id: 123,
+				value: 'IoT',
+			},
 			tags: ['ESP32', 'Weather', 'IoT', 'Web Server'],
 		},
 		{
@@ -17,7 +20,10 @@ export function getTestData_v2(): ComponentTableProps[] {
 				'Create a home automation system using Arduino microcontroller to control lights, fans, and other appliances remotely via a smartphone app or voice commands.',
 			imageUrl:
 				'https://via.placeholder.com/400x250/7FFF00/000000?text=Home+Automation',
-			category: 'Smart Home',
+			categoryInfo: {
+				id: 333,
+				value: 'Smart Home',
+			},
 			tags: ['Arduino', 'Home Automation', 'IoT', 'Mobile App'],
 		},
 		{
@@ -69,7 +75,10 @@ export function getTestData_v2(): ComponentTableProps[] {
 				'Build a motion-activated security camera with ESP32 and a PIR motion sensor. Capture images or videos when motion is detected and send alerts to your smartphone.',
 			imageUrl:
 				'https://via.placeholder.com/400x250/FFD700/000000?text=Security+Camera',
-			category: 'Security',
+			categoryInfo: {
+				id: 3331,
+				value: 'Security',
+			},
 			tags: ['ESP32', 'Security', 'Camera', 'Motion Detection'],
 		},
 		{
