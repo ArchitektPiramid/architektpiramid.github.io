@@ -6,7 +6,7 @@ export function getTestData_v2(): ComponentTableProps[] {
 			description:
 				'Build a weather station using ESP32 microcontroller to measure temperature, humidity, and air pressure. Display real-time data on a web server hosted by ESP32.',
 			imageUrl:
-				'https://via.placeholder.com/400x250/87CEEB/000000?text=Weather+Station',
+				'https://media.printables.com/media/prints/445704/images/3677105_225e79c5-e002-4dc5-87a7-1b1c9933c748/thumbs/inside/1280x960/jpg/large_display_3_445704.webp',
 			categoryInfo: {
 				id: 123,
 				value: 'IoT',

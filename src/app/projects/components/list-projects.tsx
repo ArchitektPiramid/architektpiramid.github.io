@@ -6,7 +6,7 @@ export default function ProjectsList({
 	children: ComponentTableProps[];
 }) {
 	const listItems = children.map((item) => (
-		<ProjectContextComponent projectData={item} />
+		<ProjectContextComponent key={item.id} projectData={item} />
 	));
 
 	return listItems;

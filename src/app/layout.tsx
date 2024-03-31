@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+'use client';
+//import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import RootHeader from '@/components/header/RootHeader';
@@ -8,12 +9,12 @@ import isDEBUG from '@/utils/helper';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const meta: Metadata = {
-	title: 'ArchitektPiramid - Blog & Portfolio',
-	description: 'Personal blog and portfolio',
-};
+// export const meta: Metadata = {
+// 	title: 'ArchitektPiramid - Blog & Portfolio',
+// 	description: 'Personal blog and portfolio',
+// };
 
-export default function RootLayout({
+export function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -21,7 +22,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head></head>
-			<body className="${inter.className}">
+			<body className={inter.className}>
 				<RootHeader />
 				<main
 					className={cn(
@@ -37,7 +38,7 @@ export default function RootLayout({
 		</html>
 	);
 }
-
+export default RootLayout;
 // html
 //   head
 //   body

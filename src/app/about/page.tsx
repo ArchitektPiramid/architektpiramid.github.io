@@ -5,18 +5,7 @@ import { useEffect } from 'react';
 import { cn } from 'src/lib/utils';
 import isDEBUG from 'src/utils/helper';
 import ProjectInfoComponent from '../projects/components/proj-preview/project-preview';
-import MoreProductsFadeComp from '../kiosk/pg2/components/more-products';
 import { getTestData_v2 } from '../projects/test-data';
-
-const handleScroll = () => {
-	const scrollPosition = window.scrollY;
-	console.log('scroll y:' + scrollPosition.toFixed(1));
-};
-
-function handleResize() {
-	const pY = window.innerHeight;
-	console.log('window size: ', pY);
-}
 
 export default function Page() {
 	//const router = useRouter();

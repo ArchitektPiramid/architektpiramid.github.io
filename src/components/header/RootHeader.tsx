@@ -10,11 +10,12 @@ const navHeaderLinks: IHeaderNavLinks[] = [
 	{ name: 'Contact', href: '/contact' },
 ];
 
+// sticky IN HEADER
 const RootHeader: React.FC = () => {
 	return (
 		<header
 			className={cn(
-				'sticky top-0 bg-gray-950 flex flex-wrap items-center justify-between mx-auto pt-4 pb-2 border-b-2 border-gray-600',
+				'top-0 bg-gray-950 flex flex-wrap items-center justify-between mx-auto pt-4 pb-2 border-b-2 z-20 border-gray-600',
 				isDEBUG() && 'border-dashed border-2 border-sky-500',
 			)}
 		>
