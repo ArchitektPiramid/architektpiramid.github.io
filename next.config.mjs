@@ -6,6 +6,7 @@ const nextConfig = {
 	// Config base path for GitHub pages repo
 	//basePath: '/nextjs-github-pages',
 	// https://nextjs.org/docs/app/api-reference/components/image#unoptimized
+	distDir: 'out',
 	images: {
 		unoptimized: true,
 	},
