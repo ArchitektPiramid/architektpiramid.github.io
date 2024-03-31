@@ -1,4 +1,3 @@
-'use client';
 //import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
@@ -14,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 // 	description: 'Personal blog and portfolio',
 // };
 
-export function RootLayout({
+export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -38,7 +37,6 @@ export function RootLayout({
 		</html>
 	);
 }
-export default RootLayout;
 // html
 //   head
 //   body
